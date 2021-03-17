@@ -15,28 +15,28 @@ class MainActivity : AppCompatActivity() {
 
         doit1()
 
-        val model = Model("name",24,35.0)
+         val model = Model("name",24,35.0)
         println(model.toString())
 
         Utils().setData("asdad","asdsad")
 
         val data = Utils().getData()
         println(data)
-        println(data[2].toString())
+        println(data.length.toString())
 
         supportFragmentManager.beginTransaction().replace(R.id.fragment,BlankFragment()).commit()
 
     }
 
 
-    @Keep
+//    @Keep
     fun doit1(){
         println(something)
         val list = arrayListOf<String>()
 
-        for (i in 0 until 2){ println("${list[i]}")}
+//        for (i in 0 until 2){ println("${list[i]}")}
 
-        doited2()
+//        doited2()
     }
 
     private fun doited2(){

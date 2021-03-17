@@ -1,6 +1,7 @@
 package com.example.obfuscationexample
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,13 +20,16 @@ class BlankFragment : Fragment() {
         val model = Model("name",24,35.0)
         println(model.toString())
 
-        val utils = Utils()
-        val method = utils.javaClass.getDeclaredMethod("getPrivateData")
+//        val utils = Utils()
+//        val someClass: Class<Utils>
+        val method = Utils::class.java.getMethod("getData")
         method.isAccessible = true
+//
+        Log.v("method",method.name)
 
-        method.invoke(null)
+//        method.invoke(null)
 
-        method.invoke(null)
+        method.invoke(Utils())
 
     }
 
@@ -36,31 +40,31 @@ class BlankFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_blank, container, false)
     }
 
-    @NotNull
+//    @NotNull
     fun doit1(){
         println(some)
-        doit2()
-        doit3()
+//        doit2()
+//        doit3()
     }
-
-    fun doit2(){
-        println("do it 2")
-        doit3()
-        doit1()
-        println(BuildConfig.APPLICATION_ID)
-
-    }
-
-    fun doit3(){
-        println("do it 3")
-        doit1()
-        doit2()
-        println(getString(R.string.app_name))
-//        doit4()
-    }
-
-    fun doit4(){
-        println("do it 4")
-    }
+//
+//    fun doit2(){
+//        println("do it 2")
+//        doit3()
+//        doit1()
+//        println(BuildConfig.APPLICATION_ID)
+//
+//    }
+//
+//    fun doit3(){
+//        println("do it 3")
+//        doit1()
+//        doit2()
+//        println(getString(R.string.app_name))
+////        doit4()
+//    }
+//
+//    fun doit4(){
+//        println("do it 4")
+//    }
 
 }
